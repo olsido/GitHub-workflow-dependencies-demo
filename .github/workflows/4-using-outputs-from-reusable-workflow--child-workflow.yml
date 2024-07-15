@@ -4,28 +4,20 @@ on:
   workflow_call:
     # Map the workflow outputs to job outputs
     outputs:
-      first-output:
-        description: "The first output"
-        value: ${{ jobs.echo-from-child.outputs.output1 }}
-      second-output:
-        description: "The second output"
-        value: ${{ jobs.echo-from-child.outputs.output2 }}
+      child-output:
+        description: "The child output"
+        value: ${{ jobs.echo-from-child.outputs.output }}
 
 jobs:
   echo-from-child:
     runs-on: ubuntu-latest
     # Map the job outputs to step outputs
     outputs:
-      output1: ${{ steps.generate-output1.outputs.child-output }} # Reference the output from the step
-      output2: ${{ steps.generate-output2.outputs.child-output }} # Reference the output from the step
+      output: ${{ steps.generate-output.outputs.child-output }} # Reference the output from the step
     steps:
-      - name: Generate Output 1
-        id: generate-output1 # Step ID
-        run: echo "child-output=Hello1 from the child workflow" >> $GITHUB_OUTPUT # Set the output
+      - name: Generate Output
+        id: generate-output # Step ID
+        run: echo "child-output=Hello from the child workflow" >> $GITHUB_OUTPUT # Set the output
         
-      - name: Generate Output 2
-        id: generate-output2 # Step ID
-        run: echo "child-output=Hello2 from the child workflow" >> $GITHUB_OUTPUT # Set the output
-
       - name: Echo from Child
         run: echo "This is the child workflow."
