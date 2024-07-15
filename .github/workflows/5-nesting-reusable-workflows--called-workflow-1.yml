@@ -1,0 +1,22 @@
+name: 5 - Nesting Reusable Workflows - Called Workflow 1
+
+on:
+  workflow_call:
+
+jobs:
+  before-called-workflow-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo before calling Called Workflow 2
+        run: echo "This is Called Workflow 1, before calling Called Workflow 2."
+
+  call-called-workflow-2:
+    needs: before-called-workflow-2
+    uses: ./.github/workflows/5-nesting-reusable-workflows--called-workflow-2.yml
+
+  after-called-workflow-2:
+    needs: call-called-workflow-2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo after calling Called Workflow 2
+        run: echo "This is Called Workflow 1, after calling Called Workflow 2."
