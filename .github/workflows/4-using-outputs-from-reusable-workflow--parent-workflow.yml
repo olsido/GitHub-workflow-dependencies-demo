@@ -1,0 +1,24 @@
+name: 4 - Using Outputs from Reusable Workflow - Parent Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  before-child-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo before calling Child
+        run: echo "This is the parent workflow, before calling the child workflow."
+
+  child-workflow:
+    needs: before-child-workflow
+    uses: ./.github/workflows/4-using-outputs-from-reusable-workflow--child-workflow.yml
+
+  after-child-workflow:
+    needs: child-workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo after calling Child
+        run: echo "This is the parent workflow, after the child workflow has completed."
+      - name: Use Child Workflow Output
+        run: echo "Child workflow output - ${{ needs.child-workflow.outputs.child-output }}"
