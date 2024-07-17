@@ -14,9 +14,10 @@ jobs:
         run: echo "About to invoke the composite action"
 
       - name: Run Composite Action
+        id: composite-action
         uses: ./.github/actions/6-composite-action--definition
         with:
           example-input: "This is an example input"
 
       - name: Echo the output from the composite action
-        run: echo "Output from composite action - ${{ steps.set-output.outputs.example-output }}"
+        run: echo "Output from composite action - ${{ steps.composite-action.outputs.example-output }}"
