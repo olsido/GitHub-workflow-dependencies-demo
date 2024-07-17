@@ -11,7 +11,7 @@ jobs:
         run: echo "About to invoke the composite action"
 
       - name: Run Composite Action
-        uses: ./.github/actions/6-composite-action--definition.yml
+        uses: ./.github/actions/6-composite-action--definition
         with:
           example-input: "This is an example input"
 
