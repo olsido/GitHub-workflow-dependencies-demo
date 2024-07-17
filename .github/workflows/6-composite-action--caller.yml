@@ -1,0 +1,19 @@
+name: 6 - Composite Action Example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  use-composite-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo before invoking Composite Action
+        run: echo "About to invoke the composite action"
+
+      - name: Run Composite Action
+        uses: ./.github/actions/composite-action
+        with:
+          example-input: "This is an example input"
+
+      - name: Echo the output from the composite action
+        run: echo "Output from composite action: ${{ steps.set-output.outputs.example-output }}"
