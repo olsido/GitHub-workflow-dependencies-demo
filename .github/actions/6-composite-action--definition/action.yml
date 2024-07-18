@@ -7,6 +7,7 @@ inputs:
 outputs:
   example-output:
     description: "An example output"
+    value: ${{ steps.set-output.outputs.example-output }}
 runs:
   using: "composite"
   steps:
