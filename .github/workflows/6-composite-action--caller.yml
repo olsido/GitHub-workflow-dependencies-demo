@@ -19,8 +19,5 @@ jobs:
         with:
           example-input: "This is an example input"
 
-      - name: Debug output from composite action
-        run: echo "Output from composite action - ${{ steps.composite-action.outputs.example-output }}"
-
       - name: Echo the output from the composite action
         run: echo "Output from composite action - ${{ steps.composite-action.outputs.example-output }}"
