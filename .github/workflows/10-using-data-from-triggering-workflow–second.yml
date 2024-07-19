@@ -10,11 +10,11 @@ jobs:
   use-message:
     runs-on: ubuntu-latest
     steps:
-      - name: Download message artifact
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: message
-
-      - name: Read and echo message
+          path: ./
+      - name: Read and echo the message
         run: |
           cat message.txt
