@@ -15,3 +15,15 @@ jobs:
         with:
           name: message
           path: message.txt
+          
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: message
+          github-token: ${{ secrets.GH_TOKEN }}
+          path: ./
+      - name: Unzip artifact
+        run: unzip message.zip
+      - name: Read and echo the message
+        run: |
+          cat message.txt
