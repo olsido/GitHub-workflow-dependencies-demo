@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Set message
         run: |
+          echo "GitHub run-id = ${{ github.run_id }}"
           echo "Hello from the first workflow" > message.txt
       - name: Upload message as artifact
         uses: actions/upload-artifact@v4
