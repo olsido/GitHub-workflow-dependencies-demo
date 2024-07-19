@@ -1,0 +1,13 @@
+name: 8 - Sequential Workflows - Failure
+
+on:
+  workflow_dispatch:
+
+jobs:
+  failure-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Failure Job
+        run: |
+          echo "This workflow will fail"
+          exit 1
