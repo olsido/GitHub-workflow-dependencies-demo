@@ -14,7 +14,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: message
-          github-token: ${{ secrets.GH_PAT }}
+          github-token: ${{ secrets.GH_TOKEN }}
           path: ./
       - name: Unzip artifact
         run: unzip message.zip
