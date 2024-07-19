@@ -12,13 +12,13 @@ jobs:
     steps:
       - name: Debug output
         run: |
-          echo "token = ${{ secrets.GH_TOKEN }}"
+          echo "token = ${{ secrets.GH_WORKFLOW_TOKEN }}"
           echo "run-id = ${{ github.event.workflow_run.id }}"
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: message
-          github-token: ${{ secrets.GH_TOKEN }}
+          github-token: ${{ secrets.GH_WORKFLOW_TOKEN }}
           repository: olsido/github-workflow-dependencies-demo
           run-id: ${{ github.event.workflow_run.id }}
           path: ./
