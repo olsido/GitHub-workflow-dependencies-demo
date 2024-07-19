@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set message
-        id: set-message
         run: |
           echo "Hello from the first workflow" > message.txt
       - name: Upload message as artifact
