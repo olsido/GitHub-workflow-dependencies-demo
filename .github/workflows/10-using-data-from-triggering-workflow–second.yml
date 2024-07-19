@@ -10,5 +10,11 @@ jobs:
   use-message:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo the message from the first workflow
-        run: echo "Message from the first workflow - ${{ github.event.workflow_run.outputs.message }}"
+      - name: Download message artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: message
+
+      - name: Read and echo message
+        run: |
+          cat message.txt
