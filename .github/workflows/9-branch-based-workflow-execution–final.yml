@@ -1,0 +1,15 @@
+name: 9 - Branch Based Workflow Execution - Final
+
+on:
+  workflow_run:
+    workflows: ["9 - Branch Based Workflow Execution - Develop", "9 - Branch Based Workflow Execution - Master"]
+    types: [completed]
+    branches:
+      - develop
+
+jobs:
+  final-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Final Step
+        run: echo "The previous workflow ran on the develop branch."
