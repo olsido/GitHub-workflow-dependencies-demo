@@ -1,0 +1,14 @@
+name: 10 - Using Data from Triggering Workflow - First
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-message:
+    runs-on: ubuntu-latest
+    outputs:
+      message: ${{ steps.set-message.outputs.message }}
+    steps:
+      - name: Set message
+        id: set-message
+        run: echo "message=Hello from the first workflow" >> $GITHUB_OUTPUT
