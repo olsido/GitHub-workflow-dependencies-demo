@@ -16,8 +16,6 @@ jobs:
           name: message
           github-token: ${{ secrets.GH_TOKEN }}
           path: ./
-      - name: Unzip artifact
-        run: unzip message.zip
       - name: Read and echo the message
         run: |
           cat message.txt
