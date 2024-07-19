@@ -6,9 +6,13 @@ on:
 jobs:
   generate-message:
     runs-on: ubuntu-latest
-    outputs:
-      message: ${{ steps.set-message.outputs.message }}
     steps:
       - name: Set message
         id: set-message
-        run: echo "message=Hello from the first workflow" >> $GITHUB_OUTPUT
+        run: |
+          echo "Hello from the first workflow" > message.txt
+      - name: Upload message as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: message
+          path: message.txt
