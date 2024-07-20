@@ -3,6 +3,8 @@ name: 10 - Using Data from Triggering Workflow - First
 on:
   workflow_dispatch:
 
+permissions: read-all
+
 jobs:
   generate-message:
     runs-on: ubuntu-latest
