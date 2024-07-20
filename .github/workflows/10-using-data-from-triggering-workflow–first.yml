@@ -3,28 +3,14 @@ name: 10 - Using Data from Triggering Workflow - First
 on:
   workflow_dispatch:
 
-permissions: read-all
-
 jobs:
   generate-message:
     runs-on: ubuntu-latest
     steps:
       - name: Set message
-        run: |
-          echo "GitHub run-id = ${{ github.run_id }}"
-          echo "Hello from the first workflow" > message.txt
+        run: echo "Hello from the first workflow" > message.txt
       - name: Upload message as artifact
         uses: actions/upload-artifact@v4
         with:
           name: message
           path: message.txt
-          
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: message
-          #github-token: ${{ secrets.GH_TOKEN }}
-          path: ./
-      - name: Read and echo the message
-        run: |
-          cat message.txt
