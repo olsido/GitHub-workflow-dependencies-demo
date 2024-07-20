@@ -6,6 +6,8 @@ on:
     types:
       - completed
 
+permissions: read-all
+
 jobs:
   use-message:
     runs-on: ubuntu-latest
