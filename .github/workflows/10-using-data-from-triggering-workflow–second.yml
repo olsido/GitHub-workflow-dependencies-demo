@@ -15,8 +15,6 @@ jobs:
         with:
           name: message
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          #repository: olsido/github-workflow-dependencies-demo
-          run-id: ${{ github.event.workflow_run.id }}
           path: ./
       - name: Read and echo the message
         run: |
