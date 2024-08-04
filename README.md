@@ -2,6 +2,8 @@
 
 This repository demonstrates various methods of managing workflow dependencies in GitHub Actions. The examples provided cover a wide range of scenarios to help you understand and implement dependent workflows effectively.
 
+For detailed guides and descriptions, please refer to the [Wiki](https://github.com/olsido/github-workflow-dependencies-demo/wiki).
+
 ## Table of Contents
 
 - [Introduction](#introduction)
