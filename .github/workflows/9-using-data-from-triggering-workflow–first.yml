@@ -1,0 +1,16 @@
+name: 10 - Using Data from Triggering Workflow - First
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set message
+        run: echo "Hello from the first workflow" > message.txt
+      - name: Upload message as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: message
+          path: message.txt
